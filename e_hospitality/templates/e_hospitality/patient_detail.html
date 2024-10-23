@@ -1,0 +1,18 @@
+<h1>Patient Details: {{ patient.first_name }} {{ patient.last_name }}</h1>
+<p><strong>Age:</strong> {{ patient.age }}</p>
+<p><strong>Date of Birth:</strong> {{ patient.dob }}</p>
+<p><strong>Phone:</strong> {{ patient.phone }}</p>
+<p><strong>Address:</strong> {{ patient.address }}</p>
+
+<h2>Medical History</h2>
+{% for history in medical_history %}
+    <p><strong>Diagnosis:</strong> {{ history.diagnosis }}</p>
+    <p><strong>Medications:</strong> {{ history.medications }}</p>
+    <p><strong>Allergies:</strong> {{ history.allergies }}</p>
+    <p><strong>Treatment History:</strong> {{ history.treatment_history }}</p>
+{% endfor %}
+
+<h2>Treatment Plan</h2>
+{% for plan in treatment_plan %}
+    <p>{{ plan.plan }}</p>
+{% endfor %}

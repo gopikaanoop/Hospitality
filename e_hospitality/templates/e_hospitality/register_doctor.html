@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctor Registration</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Doctor Registration</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="name">Doctor Name:</label>
+            <input type="text" name="name" id="name" value="{{ form.name.value }}" /><br>
+
+            <label for="specialty">Specialty:</label>
+            <input type="text" name="specialty" id="specialty" value="{{ form.specialty.value }}" /><br>
+
+
+            <input type="submit" value="Register" class="btn btn-primary">
+        </form>
+
+        <!-- Add the "Patient Details" button -->
+        <button id="showDetailsBtn" class="btn btn-info mt-4">Show Doctor Details</button>
+
+        <a href="{% url 'patient_dashboard' %}" class="btn btn-secondary">Back to Patient Dashboard</a>
+
+
+       <!-- Table to display all doctor details -->
+<div id="doctorDetails" class="mt-4" style="display: none;">
+    <h2>All Doctor Details</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Doctor Name</th>
+                <th>Specialty</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for doctor in doctors %}
+                <tr>
+                    <td>{{ doctor.name }}</td>
+                    <td>{{ doctor.specialty }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="2">No doctors registered yet.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script>
+    document.getElementById('showDetailsBtn').addEventListener('click', function() {
+        var detailsDiv = document.getElementById('doctorDetails');
+        if (detailsDiv.style.display === 'none') {
+            detailsDiv.style.display = 'block';
+            this.textContent = 'Hide Doctor Details';  // Change button text when showing details
+        } else {
+            detailsDiv.style.display = 'none';
+            this.textContent = 'Show Doctor Details';  // Change back to original text
+        }
+    });
+</script>
+
+</body>
+</html>

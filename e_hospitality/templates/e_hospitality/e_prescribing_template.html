@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Prescribing</title>
+</head>
+<body>
+    <h1>E-Prescribing</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.patient.label_tag }} {{ form.patient }}  <!-- Patient dropdown -->
+        <br>
+        {{ form.doctor.label_tag }} {{ form.doctor }}    <!-- Doctor dropdown, if included -->
+        <br>
+        {{ form.medications.label_tag }} {{ form.medications }}  <!-- Medications dropdown -->
+        <br>
+        <input type="submit" value="Submit Prescription">
+    </form>
+
+    <h2>Submitted Prescriptions</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Patient</th>
+                <th>Doctor</th>
+                <th>Medications</th>
+                <th>Dosage</th>
+                <th>Instructions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for prescription in prescriptions %}
+            <tr>
+                <td>{{ prescription.patient }}</td>
+                <td>{{ prescription.doctor }}</td>
+                <td>
+                    {% for medication in prescription.medications.all %}
+                        {{ medication.name }}<br>  <!-- Display medication name -->
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for medication in prescription.medications.all %}
+                        {{ medication.dosage }}<br>  <!-- Display medication dosage -->
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for medication in prescription.medications.all %}
+                        {{ medication.instructions }}<br>  <!-- Display medication instructions -->
+                    {% endfor %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">No prescriptions submitted yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

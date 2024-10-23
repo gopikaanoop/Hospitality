@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Administration Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Administration Dashboard</h1>
+
+
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <a href="{% url 'user_management' %}" class="btn btn-secondary btn-block">User Management</a>
+            </div>
+            <div class="col-md-4">
+                <a href="{% url 'facility_management' %}" class="btn btn-secondary btn-block">Facility Management</a>
+            </div>
+            <div class="col-md-4">
+                <a href="{% url 'appointment_management' %}" class="btn btn-secondary btn-block">Appointment Management</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

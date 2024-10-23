@@ -1,0 +1,39 @@
+<h2>Patient Management</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Phone</th>
+            <th>Medical History</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for patient in patients %}
+        <tr>
+            <td>{{ patient.first_name }}</td>
+            <td>{{ patient.last_name }}</td>
+            <td>{{ patient.age }}</td>
+            <td>{{ patient.phone }}</td>
+            <td>
+                {% if patient.medical_histories.all %}
+                    <ul>
+                        {% for history in patient.medical_histories.all %}
+                        <li>
+                            <strong>Diagnosis:</strong> {{ history.diagnosis }}<br>
+                            <strong>Medications:</strong> {{ history.medications}}<br>
+                            <strong>Allergies:</strong> {{ history.allergies }}<br>
+                            <strong>Treatment History:</strong> {{ history.treatment_history }}
+
+                        </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No medical history available.</p>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

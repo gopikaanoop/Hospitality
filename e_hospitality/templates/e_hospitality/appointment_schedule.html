@@ -1,0 +1,21 @@
+<h2>Appointment Schedule</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Doctor</th>
+            <th>Patient</th>
+            <th>Appointment Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for appointment in appointments %}
+        <tr>
+            <td>{{ appointment.doctor.name }}</td> <!-- Doctor's name -->
+            <td>{{ appointment.patient.first_name }} {{ appointment.patient.last_name }}</td> <!-- Patient's name -->
+            <td>{{ appointment.date }}</td> <!-- Appointment date -->
+            <td>{{ appointment.status }}</td> <!-- Status (Scheduled/Completed/Cancelled) -->
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

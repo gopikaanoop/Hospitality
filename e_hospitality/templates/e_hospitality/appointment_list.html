@@ -1,0 +1,42 @@
+<!-- e_hospitality/templates/e_hospitality/appointment_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Appointment List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">List of Appointments</h1>
+
+        {% if appointments %}
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Patient</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for appointment in appointments %}
+                        <tr>
+                            <td>{{ appointment.patient.first_name }} {{ appointment.patient.last_name }}</td>
+                            <td>{{ appointment.date }}</td>
+                            <td>{{ appointment.status }}</td>
+                            <td>
+                                <a href="{% url 'appointment_details' appointment.id %}" class="btn btn-info">View Details</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No appointments available.</p>
+        {% endif %}
+
+        <a href="{% url 'patient_dashboard' %}" class="btn btn-primary">Back to Patient Dashboard</a>
+    </div>
+</body>
+</html>

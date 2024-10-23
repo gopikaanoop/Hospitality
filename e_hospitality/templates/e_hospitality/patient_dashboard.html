@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Patient Dashboard</h1>
+
+        <!-- Display Patient Dashboard Options -->
+        <div class="row mt-6">
+            <div class="col-md-4">
+                <a href="{% url 'register_patient' %}" class="btn btn-secondary btn-block">Register Patient</a>
+            </div>
+              <div class="col-md-4">
+                <a href="{% url 'register_doctor' %}" class="btn btn-secondary btn-block">Register Doctor</a>
+            </div>
+            <div class="col-md-4">
+                <a href="{% url 'book_appointment' %}" class="btn btn-secondary btn-block">Book an Appointment</a>
+            </div>
+            <div class="col-md-4">
+                <a href="{% url 'medical_history' %}" class="btn btn-secondary btn-block">View Medical History</a>
+            </div>
+            <div class="col-md-4 mt-4">
+                <a href="{% url 'billing' %}" class="btn btn-secondary btn-block">Billing and Payments</a>
+            </div>
+            <div class="col-md-4 mt-4">
+                <a href="{% url 'health_resources' %}" class="btn btn-secondary btn-block">Health Education Resources</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

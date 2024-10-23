@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Hospitality Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to E-Hospitality</h1>
+
+        <!-- Display Dashboard Options -->
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <a href="{% url 'patient_dashboard' %}" class="btn btn-primary btn-block">Patient Dashboard</a>
+            </div>
+            <div class="col-md-4">
+                <a href="{% url 'doctor_dashboard' %}" class="btn btn-primary btn-block">Doctor Dashboard</a>
+            </div>
+            <div class="col-md-4">
+                <a href="{% url 'administration_dashboard' %}" class="btn btn-primary btn-block">Administration Dashboard</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

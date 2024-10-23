@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Doctor Dashboard</h1>
+
+        <!-- Display Patient Dashboard Options -->
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <a href="{% url 'patient_management' %}" class="btn btn-secondary btn-block">Patient Management</a>
+            </div>
+            <div class="col-md-4">
+                <a href="{% url 'appointment_schedule' %}" class="btn btn-secondary btn-block">Appointment Schedule</a>
+            </div>
+            <div class="col-md-4">
+                <a href="{% url 'e_prescribing' %}" class="btn btn-secondary btn-block">E-Prescribing</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
